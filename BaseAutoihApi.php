@@ -96,5 +96,14 @@ class BaseAutoihApi
     return $this;
   }
 
+  /**
+   * getApiUrl
+   *
+   * @return string
+   */
+  public function getApiUrl()
+  {
+    return $this->apiUrl;
+  }
 
 }
