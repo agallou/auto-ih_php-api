@@ -9,6 +9,11 @@ use mageekguy\atoum;
 class Epmsi extends atoum\test
 {
 
+  /**
+   * testConstruct
+   *
+   * @return void
+   */
   public function testConstruct()
   {
     $epmsi = new \Epmsi('http://localhost/autoih/api.php');
