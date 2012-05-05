@@ -20,4 +20,17 @@ class Epmsi extends atoum\test
     $this->assert->string($epmsi->getApiUrl())->isEqualTo('http://localhost/autoih/api.php');
   }
 
+  /**
+   * testId
+   *
+   * @return void
+   */
+  public function testId()
+  {
+    $epmsi = new \Epmsi('http://localhost/autoih/api.php');
+    $this->assert->variable($epmsi->getId())->isNull();
+    $this->assert->object($epmsi->setId('42'))->isInstanceOf('Epmsi');
+    $this->assert->string($epmsi->getId())->isEqualTo('42');
+  }
+
 }

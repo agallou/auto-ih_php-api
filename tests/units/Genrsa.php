@@ -20,4 +20,17 @@ class Genrsa extends atoum\test
     $this->assert->string($genrsa->getApiUrl())->isEqualTo('http://localhost/autoih/api.php');
   }
 
+  /**
+   * testId
+   *
+   * @return void
+   */
+  public function testId()
+  {
+    $genrsa = new \Genrsa('http://localhost/autoih/api.php');
+    $this->assert->variable($genrsa->getId())->isNull();
+    $this->assert->object($genrsa->setId('42'))->isInstanceOf('Genrsa');
+    $this->assert->string($genrsa->getId())->isEqualTo('42');
+  }
+
 }
