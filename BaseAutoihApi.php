@@ -38,7 +38,8 @@ class BaseAutoihApi
 
   public function launch()
   {
-    $url = sprintf('%s/%s/%s/send', $this->apiUrl, $this->getNamespace(), $this->year);
+    $url = implode('/', array($this->apiUrl, $this->getNamespace(), $this->year, $this->period, 'send'));
+
     $postFields = array();
     foreach ($this->files as $type => $field)
     {
@@ -68,7 +69,7 @@ class BaseAutoihApi
 
   public function getStatus()
   {
-    $url = sprintf('%s/%s/%s/%s/status', $this->apiUrl, $this->getNamespace(), $this->year, $this->getId());
+    $url = implode('/', array($this->apiUrl, $this->getNamespace(), $this->year, $this->period, $this->getId(), 'status'));
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $content = curl_exec($ch);
@@ -78,7 +79,7 @@ class BaseAutoihApi
 
   public function getFile($type)
   {
-    $url = sprintf('%s/%s/%s/%s/file/%s', $this->apiUrl, $this->getNamespace(), $this->year, $this->getId(), $type);
+    $url = implode('/', array($this->apiUrl, $this->getNamespace(), $this->year, $this->period, $this->getId(), 'file', $type));
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     return curl_exec($ch);
