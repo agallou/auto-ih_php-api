@@ -31,6 +31,11 @@ abstract class BaseAutoihApi
     return $this;
   }
 
+  public function getYear()
+  {
+    return $this->year;
+  }
+
   public function setPeriod($period)
   {
     $this->period = $period;
