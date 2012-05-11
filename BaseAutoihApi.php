@@ -1,6 +1,6 @@
 <?php
 
-class BaseAutoihApi
+abstract class BaseAutoihApi
 {
 
   protected $apiUrl;
@@ -14,6 +14,8 @@ class BaseAutoihApi
   {
     $this->apiUrl = $apiUrl;
   }
+
+  abstract protected function getNameSpace();
 
   public function setYear($year)
   {
