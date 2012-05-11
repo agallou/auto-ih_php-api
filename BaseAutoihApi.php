@@ -75,6 +75,16 @@ abstract class BaseAutoihApi
     return $this;
   }
 
+  /**
+   * waitEnd
+   *
+   * @return $this
+   */
+  public function waitEnd()
+  {
+    return $this->waitForStatus(array('SUCCESS', 'FAILURE'));
+  }
+
   public function getStatus()
   {
     $ressourceUri = '/' . implode('/', array($this->getNamespace(), $this->year, $this->period, $this->getId(), 'status'));
@@ -115,4 +125,18 @@ abstract class BaseAutoihApi
     return $this->apiUrl;
   }
 
+  /**
+   * writeFile
+   *
+   * @param string $type
+   * @param string $path
+   *
+   * @return $this
+   */
+  public function writeFile($type, $path)
+  {
+    file_put_contents($path, $type);
+
+    return $this;
+  }
 }
