@@ -1,18 +1,25 @@
 <?php
 
+require_once(dirname(__FILE__) . '/AutoihConnection.php');
+
 abstract class BaseAutoihApi
 {
 
-  protected $apiUrl;
+  protected $connection;
 
   protected $id = null;
   protected $year = null;
   protected $period = null;
   protected $files = array();
 
-  public function __construct($apiUrl)
+  public function __construct(AutoihConnection $connection)
   {
-    $this->apiUrl = $apiUrl;
+    $this->connection = $connection;
+  }
+
+  public function getConnection()
+  {
+    return $this->connection;
   }
 
   abstract protected function getNameSpace();
@@ -31,6 +38,11 @@ abstract class BaseAutoihApi
     return $this;
   }
 
+  public function getPeriod()
+  {
+    return $this->period;
+  }
+
   public function addFile($type, $filepath)
   {
     $this->files[$type] = $filepath;
@@ -40,21 +52,15 @@ abstract class BaseAutoihApi
 
   public function launch()
   {
-    $url = implode('/', array($this->apiUrl, $this->getNamespace(), $this->year, $this->period, 'send'));
+    $ressourceUri = '/' . implode('/', array($this->getNamespace(), $this->year, $this->period, 'send'));
 
-    $postFields = array();
-    foreach ($this->files as $type => $field)
-    {
-      $postFields[$type] = '@' . $field;
-    }
-    $ch = curl_init($url);
-
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $postFields);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-    $content = curl_exec($ch);
+    $content = $this->connection->post($ressourceUri, $this->files);
     $json = json_decode($content);
+
+    if (null === $json)
+    {
+      throw new RuntimeException(sprintf('Error during POST (%s) : "%s"', $ressourceUri, var_export($content, true)));
+    }
     $this->id = $json->content->id;
 
     return $this;
@@ -71,20 +77,20 @@ abstract class BaseAutoihApi
 
   public function getStatus()
   {
-    $url = implode('/', array($this->apiUrl, $this->getNamespace(), $this->year, $this->period, $this->getId(), 'status'));
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $content = curl_exec($ch);
+    $ressourceUri = '/' . implode('/', array($this->getNamespace(), $this->year, $this->period, $this->getId(), 'status'));
+    $content = $this->connection->get($ressourceUri);
+    if (false === $content)
+    {
+      throw new \RuntimeException(sprintf('Error getting %s', $ressourceUri));
+    }
     $json = json_decode($content);
     return $json->content->status;
   }
 
   public function getFile($type)
   {
-    $url = implode('/', array($this->apiUrl, $this->getNamespace(), $this->year, $this->period, $this->getId(), 'file', $type));
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    return curl_exec($ch);
+    $ressourceUri = '/' . implode('/', array($this->getNamespace(), $this->year, $this->period, $this->getId(), 'file', $type));
+    return $this->connection->get($ressourceUri);
   }
 
   public function getId()
