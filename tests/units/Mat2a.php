@@ -43,6 +43,18 @@ class Mat2a extends atoum\test
     $this->assert->string($mat2a->getId())->isEqualTo('42');
   }
 
+  public function testPeriod()
+  {
+    $this->mockGenerator->generate('\AutoihConnection');
+    $connection = new \mock\AutoihConnection('http://localhost/autoih/api.php');
+
+    $mat2a = new \Mat2a($connection);
+
+    $this->assert->variable($mat2a->getPeriod())->isNull();
+    $this->assert->object($mat2a->setPeriod('M0'))->isInstanceOf('Mat2a');
+    $this->assert->string($mat2a->getPeriod())->isEqualTo('M0');
+  }
+
   /**
    * testGetStatus
    *
