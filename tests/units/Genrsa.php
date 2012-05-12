@@ -71,4 +71,25 @@ class Genrsa extends atoum\test
     $this->assert->string($genrsa->getStatus())->isEqualTo('RUNNING');
   }
 
+  /**
+   * testCreateMat2a
+   *
+   * @return void
+   */
+  public function testCreateMat2a()
+  {
+    $this->mockGenerator->generate('\AutoihConnection');
+    $connection = new \mock\AutoihConnection('http://localhost/autoih/api.php');
+
+    $genrsa = new \Genrsa($connection);
+    $genrsa->setPeriod('M0');
+    $genrsa->setId('69a7d9f2c4560159d39731b3c91515a5');
+    $genrsa->setYear('2012');
+    $mat2a = $genrsa->createMat2a();
+    $this->assert->object($mat2a)->isInstanceOf('\Mat2a');
+    $this->assert->string($mat2a->getPeriod())->isEqualTo('M0');
+    $this->assert->string($mat2a->getYear())->isEqualTo('2012');
+    $this->assert->string($mat2a->getField())->isEqualTo('mco_stc');
+  }
+
 }
