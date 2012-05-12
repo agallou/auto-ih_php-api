@@ -28,6 +28,7 @@ class AutoihAutoload
       'Paprica'          => dirname(__FILE__) . '/src/Paprica.php',
       'Genrsa'           => dirname(__FILE__) . '/src/Genrsa.php',
       'Mat2a'            => dirname(__FILE__) . '/src/Mat2a.php',
+      'Mat2aParser'      => dirname(__FILE__) . '/src/Mat2aParser.php',
       'BaseAutoihApi'    => dirname(__FILE__) . '/src/base/BaseAutoihApi.php',
     );
     if (!array_key_exists($class, $classes))

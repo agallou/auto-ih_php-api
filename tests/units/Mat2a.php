@@ -85,4 +85,26 @@ class Mat2a extends atoum\test
     $this->assert->string($mat2a->getStatus())->isEqualTo('RUNNING');
   }
 
+  /**
+   * testCreateParser
+   *
+   * @return void
+   */
+  public function testCreateParser()
+  {
+    $this->mockGenerator->generate('\AutoihConnection');
+    $connection = new \mock\AutoihConnection('http://localhost/autoih/api.php');
+
+    $mat2a = new \Mat2a($connection);
+    $mat2a->setField('had');
+    $mat2a->setPeriod('M0');
+    $mat2a->setId('69a7d9f2c4560159d39731b3c91515a5');
+    $mat2a->setYear('2012');
+    $parser = $mat2a->createParser();
+    $this->assert->object($parser)->isInstanceOf('\Mat2aParser');
+    $this->assert->string($parser->getPeriod())->isEqualTo('M0');
+    $this->assert->string($parser->getYear())->isEqualTo('2012');
+    $this->assert->string($parser->getField())->isEqualTo('had');
+  }
+
 }

@@ -38,4 +38,19 @@ class Mat2a extends BaseAutoihApi
     return $this->field;
   }
 
+  /**
+   * createParser
+   *
+   * @return Mat2aParser
+   */
+  public function createParser()
+  {
+    $parser = new Mat2aParser($this->getConnection());
+    $parser->setPeriod($this->getPeriod());
+    $parser->setYear($this->getYear());
+    $parser->setField($this->getField());
+
+    return $parser;
+  }
+
 }
