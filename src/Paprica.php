@@ -1,9 +1,5 @@
 <?php
 
-require_once(dirname(__FILE__) . '/BaseAutoihApi.php');
-require_once(dirname(__FILE__) . '/Mat2a.php');
-
-
 class Paprica extends BaseAutoihApi
 {
 

@@ -1,7 +1,5 @@
 <?php
 
-require_once(dirname(__FILE__) . '/BaseAutoihApi.php');
-
 class Genrsa extends BaseAutoihApi
 {
 
