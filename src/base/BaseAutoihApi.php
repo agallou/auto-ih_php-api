@@ -138,7 +138,7 @@ abstract class BaseAutoihApi
    */
   public function writeFile($type, $path)
   {
-    file_put_contents($path, $type);
+    file_put_contents($path, $this->getFile($type));
 
     return $this;
   }
