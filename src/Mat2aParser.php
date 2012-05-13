@@ -68,7 +68,7 @@ class Mat2aParser
 
   public function parse($file)
   {
-    $ressourceUri = sprintf('/epmsi/parser/%s/%s/%s/parse', $this->getField(), $this->getYear(), $this->getPeriod());
+    $ressourceUri = sprintf('/epmsi/mat2a/%s/%s/%s/parse', $this->getField(), $this->getYear(), $this->getPeriod());
     $content = $this->connection->post($ressourceUri, array('export_epmsi' => $file));
     if (false === $content)
     {

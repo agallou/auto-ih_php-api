@@ -47,7 +47,7 @@ class Mat2aParser extends atoum\test
          $mat2aParser->parse('fichier');
       })
       ->isInstanceOf('\RuntimeException')
-      ->hasMessage('Error getting /epmsi/parser/had/2012/M0/parse')
+      ->hasMessage('Error getting /epmsi/mat2a/had/2012/M0/parse')
     ;
     $connection->getMockController()->post = function () {
       return '{"status":0,"message":"OK","content":{"1b":{"valorisation_brute":42}}}';
