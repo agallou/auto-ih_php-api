@@ -64,6 +64,12 @@ abstract class BaseAutoihApi
     {
       throw new RuntimeException(sprintf('Error during POST (%s) : "%s"', $ressourceUri, var_export($content, true)));
     }
+
+    if ($json->status != 0)
+    {
+      throw new RuntimeException($json->message, $json->status);
+    }
+
     $this->id = $json->content->id;
 
     return $this;
