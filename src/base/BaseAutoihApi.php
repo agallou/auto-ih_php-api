@@ -22,6 +22,13 @@ abstract class BaseAutoihApi
 
   abstract protected function getNameSpace();
 
+  /**
+   * setYear
+   *
+   * @param string $year
+   *
+   * @return BaseAutoihApi
+   */
   public function setYear($year)
   {
     $this->year = $year;
