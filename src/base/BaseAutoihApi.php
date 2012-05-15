@@ -15,6 +15,10 @@ abstract class BaseAutoihApi
     $this->connection = $connection;
   }
 
+  /**
+   *
+   * @return AutoihConnection
+   */
   public function getConnection()
   {
     return $this->connection;
