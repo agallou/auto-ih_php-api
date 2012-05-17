@@ -1,4 +1,4 @@
-var tree = [["[Global Namespace]",".html","",
+var tree = [["[Global Namespace]",,"",
                 [["AutoihConnection","AutoihConnection.html","",
                 [        ]],["BaseAutoihApi","BaseAutoihApi.html","",
                 [        ]],["Genrsa","Genrsa.html"," < BaseAutoihApi",

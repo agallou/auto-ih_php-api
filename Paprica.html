@@ -111,17 +111,27 @@
             </tr>
                     <tr>
                 <td class="type">
-                    
+                    <a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a>
                 </td>
                 <td class="last">
-                    <a href="#method_waitForStatus">waitForStatus</a>(array $statuses, $timeout = 5000)
-                    <p></p>
+                    <a href="#method_launchAndWaitEnd">launchAndWaitEnd</a>()
+                    <p>Envoie les fichiers à l&#039;API et attend qu&#039;ils aient été traités</p>
+                </td>
+                <td><small>from&nbsp;<a href="BaseAutoihApi.html#method_launchAndWaitEnd"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_waitForStatus">waitForStatus</a>(array $statuses, int $timeout = 5000)
+                    <p>Attend que le traitement ait l&#039;un des status passés en paramètre</p>
                 </td>
                 <td><small>from&nbsp;<a href="BaseAutoihApi.html#method_waitForStatus"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a></small></td>
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="$this">$this</abbr>
+                    <a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a>
                 </td>
                 <td class="last">
                     <a href="#method_waitEnd">waitEnd</a>()
@@ -181,7 +191,7 @@
             </tr>
                     <tr>
                 <td class="type">
-                    <abbr title="$this">$this</abbr>
+                    <a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a>
                 </td>
                 <td class="last">
                     <a href="#method_writeFile">writeFile</a>(string $type, string $path)
@@ -387,13 +397,37 @@
                     </div>
     </div>
 
-                <h3 id="method_waitForStatus">
-        <div class="location">in <a href="BaseAutoihApi.html#method_waitForStatus"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 89</div>
-        <code>            public            
-    <strong>waitForStatus</strong>(array $statuses, $timeout = 5000)</code>
+                <h3 id="method_launchAndWaitEnd">
+        <div class="location">in <a href="BaseAutoihApi.html#method_launchAndWaitEnd"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 94</div>
+        <code>            public            <a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a>
+    <strong>launchAndWaitEnd</strong>()</code>
     </h3>
     <div class="details">
+        <p>Envoie les fichiers à l&#039;API et attend qu&#039;ils aient été traités</p>
         <p></p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_waitForStatus">
+        <div class="location">in <a href="BaseAutoihApi.html#method_waitForStatus"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 110</div>
+        <code>            public            <a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a>
+    <strong>waitForStatus</strong>(array $statuses, int $timeout = 5000)</code>
+    </h3>
+    <div class="details">
+        <p>Attend que le traitement ait l&#039;un des status passés en paramètre</p>
         <p></p>
         <div class="tags">
                             <h4>Parameters</h4>
@@ -402,24 +436,33 @@
                     <tr>
                 <td>array</td>
                 <td>$statuses</td>
-                <td></td>
+                <td>tableau des status</td>
             </tr>
                     <tr>
-                <td></td>
+                <td>int</td>
                 <td>$timeout</td>
                 <td></td>
             </tr>
             </table>
 
             
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>
     </div>
 
                 <h3 id="method_waitEnd">
-        <div class="location">in <a href="BaseAutoihApi.html#method_waitEnd"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 103</div>
-        <code>            public            <abbr title="$this">$this</abbr>
+        <div class="location">in <a href="BaseAutoihApi.html#method_waitEnd"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 124</div>
+        <code>            public            <a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a>
     <strong>waitEnd</strong>()</code>
     </h3>
     <div class="details">
@@ -431,7 +474,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="$this">$this</abbr></td>
+            <td><a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -442,7 +485,7 @@
     </div>
 
                 <h3 id="method_getStatus">
-        <div class="location">in <a href="BaseAutoihApi.html#method_getStatus"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 108</div>
+        <div class="location">in <a href="BaseAutoihApi.html#method_getStatus"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 129</div>
         <code>            public            
     <strong>getStatus</strong>()</code>
     </h3>
@@ -457,7 +500,7 @@
     </div>
 
                 <h3 id="method_getFile">
-        <div class="location">in <a href="BaseAutoihApi.html#method_getFile"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 120</div>
+        <div class="location">in <a href="BaseAutoihApi.html#method_getFile"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 141</div>
         <code>            public            
     <strong>getFile</strong>($type)</code>
     </h3>
@@ -482,7 +525,7 @@
     </div>
 
                 <h3 id="method_getId">
-        <div class="location">in <a href="BaseAutoihApi.html#method_getId"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 126</div>
+        <div class="location">in <a href="BaseAutoihApi.html#method_getId"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 147</div>
         <code>            public            
     <strong>getId</strong>()</code>
     </h3>
@@ -497,7 +540,7 @@
     </div>
 
                 <h3 id="method_setId">
-        <div class="location">in <a href="BaseAutoihApi.html#method_setId"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 131</div>
+        <div class="location">in <a href="BaseAutoihApi.html#method_setId"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 152</div>
         <code>            public            
     <strong>setId</strong>($id)</code>
     </h3>
@@ -522,7 +565,7 @@
     </div>
 
                 <h3 id="method_getApiUrl">
-        <div class="location">in <a href="BaseAutoihApi.html#method_getApiUrl"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 143</div>
+        <div class="location">in <a href="BaseAutoihApi.html#method_getApiUrl"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 164</div>
         <code>            public            string
     <strong>getApiUrl</strong>()</code>
     </h3>
@@ -546,8 +589,8 @@
     </div>
 
                 <h3 id="method_writeFile">
-        <div class="location">in <a href="BaseAutoihApi.html#method_writeFile"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 156</div>
-        <code>            public            <abbr title="$this">$this</abbr>
+        <div class="location">in <a href="BaseAutoihApi.html#method_writeFile"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a> at line 177</div>
+        <code>            public            <a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a>
     <strong>writeFile</strong>(string $type, string $path)</code>
     </h3>
     <div class="details">
@@ -574,7 +617,7 @@
 
                     <table>
         <tr>
-            <td><abbr title="$this">$this</abbr></td>
+            <td><a href="BaseAutoihApi.html"><abbr title="BaseAutoihApi">BaseAutoihApi</abbr></a></td>
             <td></td>
         </tr>
     </table>
