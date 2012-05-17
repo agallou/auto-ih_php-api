@@ -86,6 +86,27 @@ abstract class BaseAutoihApi
     return $this;
   }
 
+  /**
+   * Envoie les fichiers à l'API et attend qu'ils aient été traités
+   *
+   * @return BaseAutoihApi
+   */
+  public function launchAndWaitEnd()
+  {
+    $this->launch();
+    $this->waitEnd();
+
+    return $this;
+  }
+
+  /**
+   * Attend que le traitement ait l'un des status passés en paramètre
+   *
+   * @param array $statuses tableau des status
+   * @param int   $timeout
+   *
+   * @return BaseAutoihApi
+   */
   public function waitForStatus(array $statuses, $timeout = 5000)
   {
     while (!in_array($this->getStatus(), $statuses))
@@ -98,7 +119,7 @@ abstract class BaseAutoihApi
   /**
    * waitEnd
    *
-   * @return $this
+   * @return BaseAutoihApi
    */
   public function waitEnd()
   {
@@ -151,7 +172,7 @@ abstract class BaseAutoihApi
    * @param string $type
    * @param string $path
    *
-   * @return $this
+   * @return BaseAutoihApi
    */
   public function writeFile($type, $path)
   {
@@ -159,4 +180,5 @@ abstract class BaseAutoihApi
 
     return $this;
   }
+
 }

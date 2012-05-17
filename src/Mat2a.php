@@ -53,4 +53,22 @@ class Mat2a extends BaseAutoihApi
     return $parser;
   }
 
+  /**
+   * Renvoie les tableaux mat2a parsés
+   *
+   * Raccourci évitant de devoir créer un instance de Mat2a et de lui
+   * passer le fichier ZIP en sortie de MAT2A.
+   *
+   * @return array
+   */
+  public function parse()
+  {
+    $tempFile = tempnam(sys_get_temp_dir(), 'mat2a');
+    $this->writeFile('exported_zip', $tempFile);
+    $values = $this->createParser()->parse($tempFile);
+    unlink($tempFile);
+
+    return $values;
+  }
+
 }
